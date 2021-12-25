@@ -1,5 +1,5 @@
 interface IProps {
-  tail: string;
+  tail?: string;
 }
 
 const Center: React.FC<IProps> = ({ children, tail }) => {

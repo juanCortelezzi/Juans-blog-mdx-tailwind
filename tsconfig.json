@@ -22,8 +22,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@typedefs/*": [
-        "src/typedefs/*"
+      "@lib/*": [
+        "src/lib/*"
       ],
     },
   },

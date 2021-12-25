@@ -2,23 +2,31 @@
   "name": "bleeding",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next-remote-watch ./src/posts/*",
+    "dev:normal": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.1",
+    "gray-matter": "^4.0.3",
     "next": "12.0.7",
+    "next-mdx-remote": "^3.0.8",
+    "npm": "^8.3.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "remark-prism": "^1.3.6",
+    "sharp": "^0.29.3"
   },
   "devDependencies": {
     "@types/node": "17.0.2",
     "@types/react": "17.0.37",
+    "@types/remark-prism": "^1.3.0",
     "autoprefixer": "^10.4.0",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
+    "next-remote-watch": "^1.0.0",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.7",
     "typescript": "4.5.4"

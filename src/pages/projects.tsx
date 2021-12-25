@@ -48,8 +48,8 @@ const Projects: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
 const Card: React.FC<{ project: IProject }> = ({ project }) => {
   return (
-    <div className="group border space-y-2 border-gray-800 rounded-md my-4 px-4 py-2 hover:border-bwhite transition duration-300">
-      <h2 className="text-2xl font-semibold group-hover:text-bgreen transition duration-300">
+    <div className="group border space-y-2 border-gray-800 rounded-md my-4 px-4 py-2 hover:border-bwhite transition duration-150">
+      <h2 className="text-2xl font-semibold group-hover:text-bgreen transition duration-150">
         {project.name}
       </h2>
       <p>{project.desc}</p>
