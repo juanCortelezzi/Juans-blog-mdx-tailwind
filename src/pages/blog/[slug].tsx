@@ -11,6 +11,8 @@ import prism from "remark-prism";
 import Layout from "@components/layout";
 import getComponents from "@components/posts";
 import { postFilePaths, POSTS_PATH } from "@lib/mdx";
+import Image from "next/image";
+import Center from "@components/center";
 
 interface IProps {
   source: MDXRemoteSerializeResult;
@@ -29,6 +31,20 @@ const Post: NextPage<IProps> = ({ source, fmatter, heavyComponents }) => {
         />
       </Head>
       <h1 className="text-4xl font-bold">{fmatter.title}</h1>
+      <div className="my-2" />
+      <Center tail="relative h-72 sm:h-96 rounded-md overflow-hidden">
+        <Image
+          src={fmatter.image}
+          alt={fmatter.title}
+          priority
+          layout="fill"
+          objectFit="cover"
+        />
+      </Center>
+      <div className="my-2" />
+      <p className="text-bgray">
+        Posted in {fmatter.date} &bull; by {fmatter.author}
+      </p>
       <main>
         <MDXRemote {...source} components={getComponents(heavyComponents)} />
       </main>
@@ -43,7 +59,7 @@ export const getStaticProps = async ({
 }) => {
   const postFilePath = jspath.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
-  const { content, data } = matter(source);
+  const { content, data: rawData } = matter(source);
 
   const heavyComponents = [/<Img/.test(content) ? "Img" : null].filter(
     Boolean
@@ -55,8 +71,13 @@ export const getStaticProps = async ({
       remarkPlugins: [prism],
       rehypePlugins: [],
     },
-    scope: data,
+    scope: rawData,
   });
+
+  const data = {
+    ...rawData,
+    date: new Date(rawData.date).toLocaleDateString(),
+  };
 
   return {
     props: {

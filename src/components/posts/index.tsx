@@ -1,8 +1,8 @@
-import { h1, h2, h3, h4, h5, h6 } from "@components/posts/headers";
+import dynamic from "next/dynamic";
+import { h1, h2, h3, h4, h5, h6, p } from "@components/posts/text";
 import { inlineCode, pre, blockquote, div } from "@components/posts/code";
 import { ul, ol } from "@components/posts/lists";
 import { table, tbody } from "@components/posts/table";
-import dynamic from "next/dynamic";
 
 const hr: React.FC = ({ children }) => (
   <hr className="my-6 sm:my-10">{children}</hr>
@@ -26,6 +26,7 @@ const components = {
   tbody,
   div,
   pre,
+  p,
 };
 
 function getComponents(heavyComponents: string[]) {
