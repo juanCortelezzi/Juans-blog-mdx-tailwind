@@ -24,10 +24,7 @@ const Projects: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   projects,
 }) => {
   return (
-    <Layout
-      title="Bleeding-edge: Projects"
-      desc="The Bleeding edge projects section"
-    >
+    <Layout title="JBC: Projects" desc="The JBC project display section">
       <main>
         {projects.map((project) => {
           return (

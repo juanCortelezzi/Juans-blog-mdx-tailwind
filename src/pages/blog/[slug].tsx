@@ -22,7 +22,7 @@ interface IProps {
 
 const Post: NextPage<IProps> = ({ source, fmatter, heavyComponents }) => {
   return (
-    <Layout title={`Bleeding-blog: ${fmatter.title}`} desc={fmatter.desc}>
+    <Layout title={`JBC: ${fmatter.title}`} desc={fmatter.desc}>
       <Head>
         <link
           rel="stylesheet"

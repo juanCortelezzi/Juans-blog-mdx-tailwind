@@ -3,7 +3,7 @@ import Layout from "@components/layout";
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Bleeding-edge" desc="The Bleeding edge blog">
+    <Layout title="JBC" desc="The JBC blog landing page">
       <main>
         <h1 className="text-4xl font-bold text-center sm:text-left">
           Hey, I&apos;m <span className="text-bgreen">Juan Cortelezzi</span>

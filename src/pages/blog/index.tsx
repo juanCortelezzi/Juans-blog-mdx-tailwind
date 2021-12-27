@@ -20,7 +20,7 @@ interface IProps {
 
 const Blog: NextPage<IProps> = ({ posts }) => {
   return (
-    <Layout title="Bleeding-edge: Blog" desc="The Bleeding edge blog">
+    <Layout title="JBC: Blog" desc="The JBC blog feed">
       <main>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 place-content-stretch place-items-stretch">
           {posts.map(({ path, data }) => {
