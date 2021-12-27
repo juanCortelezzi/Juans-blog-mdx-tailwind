@@ -10,7 +10,9 @@ const div: React.FC<{ className?: string }> = ({ children, className }) => {
 };
 
 const pre: React.FC<{ className?: string }> = ({ children, className }) => (
-  <pre className={`${className} rounded-md overflow-x-auto`}>{children}</pre>
+  <pre className={`${className} p-2 rounded-md overflow-x-auto whitespace-pre`}>
+    {children}
+  </pre>
 );
 
 const blockquoteStyles =

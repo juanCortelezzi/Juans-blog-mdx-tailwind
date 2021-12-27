@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import type { IPostFrontMatter } from "@lib/types";
-import Head from "next/head";
 import fs from "fs";
 import jspath from "path";
 import matter from "gray-matter";
@@ -23,13 +22,6 @@ interface IProps {
 const Post: NextPage<IProps> = ({ source, fmatter, heavyComponents }) => {
   return (
     <Layout title={`JBC: ${fmatter.title}`} desc={fmatter.desc}>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/prismjs@1.25.0/themes/prism-tomorrow.css"
-          key="prism-theme"
-        />
-      </Head>
       <h1 className="text-4xl font-bold">{fmatter.title}</h1>
       <div className="my-2" />
       <Center tail="relative h-72 sm:h-96 rounded-md overflow-hidden">
