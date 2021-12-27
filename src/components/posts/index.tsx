@@ -8,6 +8,12 @@ const hr: React.FC = ({ children }) => (
   <hr className="my-6 sm:my-10">{children}</hr>
 );
 
+const a: React.FC<{ href: string }> = ({ children, href }) => (
+  <a href={href} className="text-bgreen hover:underline">
+    {children}
+  </a>
+);
+
 const Img = dynamic(() => import("@components/posts/image"));
 
 const components = {
@@ -27,6 +33,7 @@ const components = {
   div,
   pre,
   p,
+  a,
 };
 
 function getComponents(heavyComponents: string[]) {
