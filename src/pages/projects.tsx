@@ -1,5 +1,6 @@
 import type { NextPage, InferGetStaticPropsType } from "next";
 import Layout from "@components/layout";
+import { useState } from "react";
 
 interface IRawProject {
   id: string;
@@ -23,10 +24,34 @@ interface IProject {
 const Projects: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   projects,
 }) => {
+  const [results, setResults] = useState<IProject[]>(projects);
+
   return (
     <Layout title="JBC: Projects" desc="The JBC project display section">
+      <input
+        type="text"
+        placeholder="Project search..."
+        className="w-full bg-gray-800 text-lg rounded-lg py-0.5 px-2 focus-visible:outline-none focus-visible:border"
+        onChange={async (e) => {
+          const { value } = e.currentTarget;
+
+          // Dynamically load fuse
+          const Fuse = (await import("fuse.js")).default;
+
+          const fuse = new Fuse(projects, {
+            keys: ["name", "desc", "createdAt", "updatedAt"],
+          });
+
+          const searchResult = fuse.search(value).map((result) => result.item);
+
+          // if there are none search results, go back to all projects
+          const updatedResults = searchResult.length ? searchResult : projects;
+          setResults(updatedResults);
+        }}
+      />
+      <div className="mb-8" />
       <main>
-        {projects.map((project) => {
+        {results.map((project) => {
           return (
             <a
               key={`dc-${project.name}`}
