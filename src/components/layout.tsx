@@ -22,6 +22,8 @@ const Layout: React.FC<IProps> = ({ children, title, desc }) => {
         <div className="my-8" />
 
         {children}
+
+        <div className="my-8" />
       </div>
     </Center>
   );
